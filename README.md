@@ -19,6 +19,10 @@ label: The question types annotated by the most accurate classifier
 
 qg_test_set: label "1" to indicate samples that are the randomly sampled test set for SoQG; "-1" indicate samples with questions that do not conform to Socratic categories.
 
+## Citation
 
+```
+@inproceedings{
+}
 
-
+```
