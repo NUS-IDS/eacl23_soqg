@@ -22,7 +22,6 @@ qg_test_set: label "1" to indicate samples that are the randomly sampled test se
 ## Citation
 
 ```
-@inproceedings{
-}
+@inproceedings{TBA}
 
 ```
