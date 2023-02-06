@@ -3,7 +3,7 @@ This is the official data repository for the paper "Socratic Question Generation
 
 ## Dataset
 * MTurk Annotated data
-* SoQG data
+* SoQG [data](https://github.com/NUS-IDS/eacl23_soqg/tree/main/data/soqg_samples)
 
 ## Amazon MTurk Setup
 * Qualification test [doc](https://github.com/NUS-IDS/eacl23_soqg/blob/main/mturk_setup/MTurk%20Qualification%20Test.pdf)
