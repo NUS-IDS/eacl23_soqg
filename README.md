@@ -12,7 +12,8 @@ This is the official data repository for the paper "Socratic Question Generation
 * Question Selection study [doc](https://github.com/NUS-IDS/eacl23_soqg/blob/main/mturk_setup/mturk_question_selection.png)
 * Question Quality study [doc](https://github.com/NUS-IDS/eacl23_soqg/blob/main/mturk_setup/mturk_question_quality.png)
 
-
+## Quick Demo
+https://nlp-platform.online/socratic_qg/
 
 ## Citation
 
