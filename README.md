@@ -6,8 +6,9 @@ This is the official data repository for the paper "Socratic Question Generation
 * SoQG data
 
 ## Amazon MTurk Setup
-* Qualification Test
-* Evaluation
+* Qualification test [doc](https://github.com/NUS-IDS/eacl23_soqg/blob/main/mturk_setup/MTurk%20Qualification%20Test.pdf)
+* Question Selection study [doc](https://github.com/NUS-IDS/eacl23_soqg/blob/main/mturk_setup/mturk_question_selection.png)
+* Question Quality study [doc](https://github.com/NUS-IDS/eacl23_soqg/blob/main/mturk_setup/mturk_question_quality.png)
 
 ## Citation
 
