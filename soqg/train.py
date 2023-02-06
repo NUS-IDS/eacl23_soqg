@@ -110,17 +110,15 @@ def predict(epoch, tokenizer, model, device, loader):
     total_num_pred = len(predictions)        
     for i, prediction in enumerate(predictions):
         if i%int(0.1*total_num_pred) == 0:
-            logging.info(f"Pred@{i}:{prediction}")
-    
+            logging.info(f"Pred@{i}:{prediction}") 
     return predictions, actuals
-
 
 class T5_Dataset(Dataset):
 
     def __init__(
         self, dataframe, tokenizer, source_len, target_len, source_text, target_text
-    ):
-
+         ):
+        
         self.tokenizer = tokenizer
         self.data = dataframe
         self.source_len = source_len
@@ -134,8 +132,6 @@ class T5_Dataset(Dataset):
     def __getitem__(self, index):
         source_text = str(self.source_text[index])
         target_text = str(self.target_text[index])
-
-        # cleaning data so as to ensure data is in string type
         source_text = " ".join(source_text.split())
         target_text = "[Question] " + " ".join(target_text.split())
 
@@ -173,31 +169,22 @@ def start_training(
 ):
 
     best_epoch = -999999
-
     torch.manual_seed(model_params["SEED"]) 
     np.random.seed(model_params["SEED"]) 
     torch.backends.cudnn.deterministic = True
-
     logging.info(f"""[Model]: Loading {model_params["MODEL_PATH"]}...\n""")
-
     tokenizer = T5Tokenizer.from_pretrained(model_params["TOKENIZER_PATH"])
     tokenizer.add_tokens("[Question]")
     logging.info(f"[Question] token added {tokenizer.added_tokens_encoder}")
-
     model = T5ForConditionalGeneration.from_pretrained(model_params["MODEL_PATH"])
     model = model.to(device)
-
     logging.info(f"[Data]: Reading data...\n")
-
     train_dataset = train_dataset[[source_text, target_text]]
     val_dataset = val_dataset[[source_text, target_text]]
     test_dataset = test_dataset[[source_text, target_text]]
-
-
     logging.info(f"TRAIN Dataset: {train_dataset.shape}")
     logging.info(f"VALID Dataset: {val_dataset.shape}\n")
     logging.info(f"TEST Dataset: {test_dataset.shape}\n")
-
     training_set = T5_Dataset(
         train_dataset,
         tokenizer,
@@ -214,7 +201,6 @@ def start_training(
         source_text,
         target_text,
     )
-    
     test_set = T5_Dataset(
         test_dataset,
         tokenizer,
@@ -223,38 +209,28 @@ def start_training(
         source_text,
         target_text,
     )
-
     train_params = {
         "batch_size": model_params["TRAIN_BATCH_SIZE"],
         "shuffle": True,
         "num_workers": 0,
     }
-
     val_params = {
         "batch_size": model_params["VALID_BATCH_SIZE"],
         "shuffle": True,
         "num_workers": 0,
     }
-    
     test_params = {
         "batch_size": model_params["VALID_BATCH_SIZE"],
         "shuffle": False,
         "num_workers": 0,
     }
-
-
     training_loader = DataLoader(training_set, **train_params)
     val_loader = DataLoader(val_set, **val_params)
     test_loader = DataLoader(test_set, **test_params)
-
-
     optimizer = torch.optim.AdamW(
         params=model.parameters(), lr=model_params["LEARNING_RATE"]
     )
-    
     scheduler = torch.optim.lr_scheduler.ReduceLROnPlateau(optimizer, "min", patience=2, threshold=0.01)
-
-
     logging.info(f"[Initiating Fine Tuning]...\n")
     lowest_valid_loss = 999999
     
