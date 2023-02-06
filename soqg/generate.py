@@ -2,7 +2,7 @@ from transformers import T5Tokenizer, T5ForConditionalGeneration
 import torch
 from torch import cuda
 
-def predict(labels, context, num_seq = 3, top_p = .6, top_k = 5):
+def generate(labels, context, num_seq = 3, top_p = .6, top_k = 5):
     for label in labels:
         tokenized_input = tokenizer(f"{label}: {context}", return_tensors="pt")
         print(f"LABEL: {label}")
@@ -43,6 +43,6 @@ if __name__ == "__main__":
     while True:
         user_input = input()
         if user_input:
-            predict(labels, user_input, num_seq = 3, top_p = .6, top_k = 5)
+            generate(labels, user_input, num_seq = 3, top_p = .6, top_k = 5)
         else:
             break
