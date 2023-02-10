@@ -3,7 +3,7 @@ This is the official data repository for the paper "Socratic Question Generation
 
 ## Resources
 * MTurk Annotated [data](https://github.com/NUS-IDS/eacl23_soqg/tree/main/data/mturk_annotations)
-* SoQG [data](https://github.com/NUS-IDS/eacl23_soqg/tree/main/data/soqg_samples)
+* SoQG [data](https://github.com/NUS-IDS/eacl23_soqg/tree/main/data/soqg_dataset)
 * SoQG train [script](https://github.com/NUS-IDS/eacl23_soqg/blob/main/soqg_scripts/train.py)
 * SoQG generate [script](https://github.com/NUS-IDS/eacl23_soqg/blob/main/soqg_scripts/generate.py)
 
