@@ -266,12 +266,12 @@ if __name__ == "__main__":
 
     device = 'cuda:0' if cuda.is_available() else 'cpu'
     logging.basicConfig(filename = "train_progress.log", level = logging.INFO)
-    train_df_chunk_I = pd.read_csv("../data/soqg_samples/train_chunk_I.csv", index_col=0)
-    train_df_chunk_II = pd.read_csv("../data/soqg_samples/train_chunk_II.csv", index_col=0)
-    train_df_chunk_III = pd.read_csv("../data/soqg_samples/train_chunk_III.csv", index_col=0)
+    train_df_chunk_I = pd.read_csv("../data/soqg_dataset/train_chunk_I.csv", index_col=0)
+    train_df_chunk_II = pd.read_csv("../data/soqg_dataset/train_chunk_II.csv", index_col=0)
+    train_df_chunk_III = pd.read_csv("../data/soqg_dataset/train_chunk_III.csv", index_col=0)
     train_df = pd.concat([train_df_chunk_I, train_df_chunk_II, train_df_chunk_III], axis = 0)
-    valid_df = pd.read_csv("../data/soqg_samples/valid.csv", index_col=0)
-    test_df = pd.read_csv("../data/soqg_samples/test.csv", index_col=0)
+    valid_df = pd.read_csv("../data/soqg_dataset/valid.csv", index_col=0)
+    test_df = pd.read_csv("../data/soqg_dataset/test.csv", index_col=0)
     train_df.reset_index(drop=True, inplace=True)
     valid_df.reset_index(drop=True, inplace=True)
     test_df.reset_index(drop=True, inplace=True)
