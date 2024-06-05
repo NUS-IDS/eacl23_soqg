@@ -16,8 +16,23 @@ This is the official data repository for the paper "Socratic Question Generation
 https://nlp-platform.online/socratic_qg/
 
 ## Citation
-
+The bibtex from
+https://aclanthology.org/2023.eacl-main.12/
 ```
-@inproceedings{TBA}
 
+@inproceedings{ang-etal-2023-socratic,
+    title = "Socratic Question Generation: A Novel Dataset, Models, and Evaluation",
+    author = "Ang, Beng Heng  and
+      Gollapalli, Sujatha Das  and
+      Ng, See-Kiong",
+    editor = "Vlachos, Andreas  and
+      Augenstein, Isabelle",
+    booktitle = "Proceedings of the 17th Conference of the European Chapter of the Association for Computational Linguistics",
+    month = may,
+    year = "2023",
+    address = "Dubrovnik, Croatia",
+    publisher = "Association for Computational Linguistics",
+    url = "https://aclanthology.org/2023.eacl-main.12",
+    doi = "10.18653/v1/2023.eacl-main.12",
+    pages = "147--165",}
 ```
